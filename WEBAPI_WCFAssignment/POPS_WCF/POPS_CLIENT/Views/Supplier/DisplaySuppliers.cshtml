@@ -1,0 +1,46 @@
+﻿@model IEnumerable<POPS_CLIENT.SupplierServiceReference.SUPPLIER>
+
+@{
+    ViewBag.Title = "DisplaySuppliers";
+}
+
+<h2>DisplaySuppliers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddSupplier", new { id = 0 })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SUPLADDR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SUPLNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SUPLNO)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SUPLADDR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SUPLNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SUPLNO)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditSupplier", new { SUPLNO = item.SUPLNO }) |
+                @Html.ActionLink("Details", "DisplaySupplier", new { SUPLNO = item.SUPLNO }) |
+                @Html.ActionLink("Delete", "DeleteSupplier", new { SUPLNO = item.SUPLNO })
+            </td>
+        </tr>
+    }
+
+</table>

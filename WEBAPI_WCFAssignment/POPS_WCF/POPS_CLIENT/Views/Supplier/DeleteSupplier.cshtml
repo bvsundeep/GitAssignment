@@ -1,0 +1,33 @@
+﻿@model POPS_CLIENT.SupplierServiceReference.SUPPLIER
+
+@{
+    ViewBag.Title = "DeleteSupplier";
+}
+
+<h2>DeleteSupplier</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SUPPLIER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SUPLNO)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.SUPLNO)*@
+            @Html.EditorFor(model => model.SUPLNO, new { htmlAttributes = new { @class = "form-control" } })
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "DisplaySuppliers")
+        </div>
+    }
+</div>
